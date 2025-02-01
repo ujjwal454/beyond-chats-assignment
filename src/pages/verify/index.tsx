@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { defaultOtp } from "@/constants";
 import { useTimer } from "react-timer-hook";
-import { addSeconds, set } from "date-fns";
+import { addSeconds } from "date-fns";
 
 const Verify = () => {
   const {
