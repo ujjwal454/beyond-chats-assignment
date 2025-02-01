@@ -7,13 +7,14 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { defaultOtp } from "@/constants";
 import { useTimer } from "react-timer-hook";
-import { addSeconds } from "date-fns";
+import { addSeconds, set } from "date-fns";
 
 const Verify = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm<{ otp: string }>();
 
   const { seconds, restart } = useTimer({
@@ -25,7 +26,15 @@ const Verify = () => {
   };
 
   const onSubmit = (data: { otp: string }) => {
-    console.log("Entered OTP:", data.otp);
+    if (data.otp !== defaultOtp) {
+      setError("otp", {
+        type: "manual",
+        message: "Invalid OTP",
+      });
+      return;
+    } else {
+      toast.success("OTP verified successfully");
+    }
   };
 
   useEffect(() => {
