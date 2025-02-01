@@ -1,9 +1,12 @@
-import Register from "./pages/register/register";
+import { ToastContainer } from "react-toastify";
+import Register from "./pages/register";
+import Verify from "./pages/verify";
 
 const App = () => {
   return (
     <div>
-      <Register />
+      <ToastContainer />
+      <Verify />
     </div>
   );
 };
