@@ -3,3 +3,9 @@ export type RegisterForm = {
   email: string;
   password: string;
 };
+
+export type SetUp = {
+  name: string;
+  url: string;
+  description: string;
+};

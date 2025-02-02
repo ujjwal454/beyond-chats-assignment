@@ -8,8 +8,11 @@ import { toast } from "react-toastify";
 import { defaultOtp } from "@/constants";
 import { useTimer } from "react-timer-hook";
 import { addSeconds } from "date-fns";
+import { useNavigate } from "react-router";
 
 const Verify = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -22,7 +25,7 @@ const Verify = () => {
   });
 
   const showOtp = () => {
-    toast.info(defaultOtp);
+    toast.info(defaultOtp, { toastId: "otp" });
   };
 
   const onSubmit = (data: { otp: string }) => {
@@ -34,17 +37,18 @@ const Verify = () => {
       return;
     } else {
       toast.success("OTP verified successfully");
+      navigate("/setup");
     }
   };
-
-  useEffect(() => {
-    showOtp();
-  }, []);
 
   const handleResend = () => {
     showOtp();
     restart(addSeconds(new Date(), 30));
   };
+
+  useEffect(() => {
+    handleResend();
+  }, []);
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-background">

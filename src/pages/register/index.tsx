@@ -4,15 +4,32 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
 import { RegisterForm } from "@/types";
+import GoogleSvg from "@/assets/icons/google.svg";
+import { auth, googleProvider, signInWithPopup } from "@/firebase";
+import { useNavigate } from "react-router";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const {
     formState: { errors },
     handleSubmit,
     register,
   } = useForm<RegisterForm>();
 
-  const onSubmit = (data: RegisterForm) => {};
+  const onSubmit = () => {
+    navigate("/verify");
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      console.log("User Info:", result.user);
+      navigate("/setup");
+    } catch (error) {
+      console.error("Google Sign-In Error:", error);
+    }
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
@@ -64,6 +81,17 @@ const Register = () => {
           </div>
           <Button className="w-full" onClick={handleSubmit(onSubmit)}>
             Register
+          </Button>
+          <div className="flex items-center justify-center mt-4 mb-4">
+            <span className="text-gray-500">or</span>
+          </div>
+          <Button
+            className="w-full"
+            variant="secondary"
+            onClick={handleGoogleSignIn}
+          >
+            <img src={GoogleSvg} alt="google" className="w-4 h-4 mr-2" />
+            Register with Google{" "}
           </Button>
         </CardContent>
       </Card>

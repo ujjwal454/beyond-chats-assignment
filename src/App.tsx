@@ -1,13 +1,13 @@
 import { ToastContainer } from "react-toastify";
-import Register from "./pages/register";
-import Verify from "./pages/verify";
+import Routes from "./routes";
+import { BrowserRouter } from "react-router";
 
 const App = () => {
   return (
-    <div>
+    <BrowserRouter>
       <ToastContainer />
-      <Verify />
-    </div>
+      <Routes />
+    </BrowserRouter>
   );
 };
 
