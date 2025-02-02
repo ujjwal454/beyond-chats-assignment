@@ -1,50 +1,94 @@
-# React + TypeScript + Vite
+BeyondChats Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the BeyondChats Frontend, a React-based web application designed for chatbot integration. It includes user authentication, organization setup, chatbot testing, and integration workflows.
 
-Currently, two official plugins are available:
+Link to live website ->  https://lambent-raindrop-20695b.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📌 Features
 
-## Expanding the ESLint configuration
+User Authentication: Signup/Login with email & Google authentication.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Organization Setup: Users can enter company details and see detected/scraped web pages.
 
-- Configure the top-level `parserOptions` property like this:
+Mock Meta Data Fetching: Auto-fetch website meta descriptions.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Chatbot Integration: Instructions for adding the chatbot to a website.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Success UI: Confetti UI on successful chatbot integration.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Dummy Chatbot: A simulated chatbot appearing in the bottom right of the client website.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+🚀 Installation & Setup
+
+Prerequisites
+
+Node.js (v18+ recommended)
+
+npm or yarn
+
+Steps to run the project
+
+Clone the repository
+
+git clone https://github.com/your-repo/beyondchats-frontend.git
+cd beyondchats-frontend
+
+Install dependencies
+
+npm install
+# OR
+yarn install
+
+Run the development server
+
+npm run dev
+# OR
+yarn dev
+
+Open the app
+Navigate to http://localhost:3000 in your browser.
+
+📜 Project Structure
+
+📂 beyondchats-frontend
+├── 📂 src
+│   ├── 📂 pages          # All the application pages
+│   ├── 📂 components     # UI Components
+│   ├── 📂 styles         # Global styles
+│   ├── 📂 utils          # Utility functions (e.g., URL validation, metadata fetching)
+│   ├── 📂 Types         # All Form types
+│   ├── App.js           # Main application entry point
+│   ├── index.js         # ReactDOM entry
+├── 📜 package.json      # Dependencies & scripts
+├── 📜 README.md         # Project documentation
+
+
+🛠️ Technologies Used
+
+Frontend: React.js, Tailwind CSS, ShadCN UI
+
+State Management: React Context API
+
+Authentication: Firebase/Auth (for Google Sign-In)
+
+Form management: React Hook Form
+
+🤝 Contributing
+
+Contributions are welcome! To contribute:
+
+Fork the repo
+
+Create a feature branch (git checkout -b feature-name)
+
+Commit changes (git commit -m "Added new feature")
+
+Push to the branch (git push origin feature-name)
+
+Create a Pull Request
+
+📄 License
+
+This project is licensed under the MIT License.
+
+Made with ❤️ for BeyondChats 🚀
