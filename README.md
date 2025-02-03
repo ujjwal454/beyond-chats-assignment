@@ -22,7 +22,7 @@ Dummy Chatbot: A simulated chatbot appearing in the bottom right of the client w
 
 Prerequisites
 
-Node.js (v18+ recommended)
+Node.js (v20+ recommended)
 
 npm or yarn
 
@@ -44,9 +44,6 @@ Run the development server
 npm run dev
 # OR
 yarn dev
-
-Open the app
-Navigate to http://localhost:3000 in your browser.
 
 📜 Project Structure
 
